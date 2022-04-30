@@ -9,7 +9,7 @@ class TPQueue {
     TPQueue():head(nullptr), tail(nullptr) {}
     void push(const T&);
     T pop();
- private:  
+ private:
     struct ITEM {
           T value;
           ITEM* next;
@@ -38,7 +38,7 @@ template <typename T>
 void TPQueue <T>::push(const T& value) {
     ITEM* temp = head;
     ITEM* item = create(value);
-    while (temp && temp->value.priory > value.priory) {
+    while (temp && temp->value.priory >= value.priory) {
         temp = temp->next;
     }
     if (!temp && head) {
